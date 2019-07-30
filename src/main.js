@@ -24,7 +24,10 @@ import MintUI from 'mint-ui'
 Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
 
+//导入 引入的字体 的样式  自己的css同理
+import './lib/font-awesome/css/font-awesome.css'
 
+// import './lib/mui/css/mui.min.css'
 
 //1.1 导入路由模块
 import VueRouter from 'vue-router'

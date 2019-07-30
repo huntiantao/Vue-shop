@@ -4,6 +4,7 @@ const path = require('path');
 // const webpack = require('webpack')
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+// import img from './file.png';
 
 module.exports = {
     entry: __dirname + "/src/main.js", // 唯一入口文件
@@ -35,7 +36,8 @@ module.exports = {
           { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] }, //配置处理 .less 文件的第三方 loader 规则
           { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },// 配置处理 .scss 文件的 第三方 loader 规则
            // 规则 limit给定的是图片的大小 如果我们给定图片的大小大于等于我们给定的limit 则不会被转为base64编码
-            //反之会被转换name=[hash:8]-[name].[ext] 前面加hash值区分图片 名字原样输出
+           //反之会被转换name=[hash:8]-[name].[ext] 前面加hash值区分图片 名字原样输出
+          { test: /\.(mp4|ogv|mpeg|webm|ogg)$/, use: 'file-loader' },
           { test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=1000&name=[hash:8]-[name].[ext]' }, // 配置图片路径loader
           { test: /\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader' },
           { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ }, // 配置 Babel 来转换高级的ES语法
